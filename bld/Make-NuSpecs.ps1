@@ -30,6 +30,8 @@ function DoExecute
 	$contentFiles.Add("$SolutionFolder\Website\web.config", "content\web.galeryserverpro.config")  
 
 	MakeNuspec -Id "GalleryServerPro.Web" -Summary "Website for GalleryServerPro" -Description "Use this to create website with GalleryServerPro"
+	
+	exit
 }
 
 function ReadPackages
