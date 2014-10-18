@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id></id>
+    <version>$version$</version>
+    <authors>Roger Martin</authors>
+	<owners>Jesper Balle</owners>
+	<projectUrl>http://www.galleryserverpro.com/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <summary>Auto-generated package</summary>
+    <description>Auto-generated package</description>
+    <frameworkAssemblies>
+    </frameworkAssemblies>
+	<dependencies>
+	</dependencies>
+  </metadata>
+</package>
