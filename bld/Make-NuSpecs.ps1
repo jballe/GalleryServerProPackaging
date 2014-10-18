@@ -1,4 +1,4 @@
-﻿param([string]$SolutonPath = "", [string]$TargetFolder = "", [string]$NuspecSkeleton = "")
+﻿param([string]$SolutionPath = "", [string]$TargetFolder = "", [string]$NuspecSkeleton = "")
 
 [System.Collections.ArrayList]$coreFiles = New-Object System.Collections.ArrayList
 [System.Collections.ArrayList]$webFiles = New-Object System.Collections.ArrayList
@@ -19,7 +19,7 @@ function DoExecute
 	$dependencies = @{}
 	ReadDependencies $coreFiles
 	$contentFiles = @{}
-	$contentFiles.Add("$SolutionFolder\TIS.GSP.Business\bin\Release\GalleryServerPro.*.dll", "lib/net40")
+	$contentFiles.Add("$SolutionPath\TIS.GSP.Business\bin\Release\GalleryServerPro.*.dll", "lib/net40")
 	MakeNuspec -Id "GalleryServerPro.Core" -Summary "Assemblies with Business Logic for GalleryServerPro" -Description "Use this for extending functionality for GalleryServerPro"
 
 
@@ -27,13 +27,13 @@ function DoExecute
 	ReadDependencies $webFiles
 	$dependencies.Add("GalleryServerPro.Core", "[`$version$]")
 	$contentFiles = @{}
-	$contentFiles.Add("$SolutionFolder\Website\bin\GalleryServerPro.Web.dll", "lib/net40")
-	$contentFiles.Add("$SolutionFolder\Website\App_GlobalResources\**\*.resx", "content\App_GlobalResources")
-	$contentFiles.Add("$SolutionFolder\Website\gs\**\*.ascx", "content\gs")
-	$contentFiles.Add("$SolutionFolder\Website\gs\**\*.aspx", "content\gs")
-	$contentFiles.Add("$SolutionFolder\Website\gs\**\*.ashx", "content\gs")
-	$contentFiles.Add("$SolutionFolder\Website\scripts\*.*", "content\scripts")    
-	$contentFiles.Add("$SolutionFolder\Website\web.config", "content\web.galeryserverpro.config")  
+	$contentFiles.Add("$SolutionPath\Website\bin\GalleryServerPro.Web.dll", "lib/net40")
+	$contentFiles.Add("$SolutionPath\Website\App_GlobalResources\**\*.resx", "content\App_GlobalResources")
+	$contentFiles.Add("$SolutionPath\Website\gs\**\*.ascx", "content\gs")
+	$contentFiles.Add("$SolutionPath\Website\gs\**\*.aspx", "content\gs")
+	$contentFiles.Add("$SolutionPath\Website\gs\**\*.ashx", "content\gs")
+	$contentFiles.Add("$SolutionPath\Website\scripts\*.*", "content\scripts")    
+	$contentFiles.Add("$SolutionPath\Website\web.config", "content\web.galeryserverpro.config")  
 
 	MakeNuspec -Id "GalleryServerPro.Web" -Summary "Website for GalleryServerPro" -Description "Use this to create website with GalleryServerPro"
 	
@@ -42,7 +42,7 @@ function DoExecute
 
 function ReadPackages
 {
-	$projects = Get-ChildItem $SolutionFolder -Directory
+	$projects = Get-ChildItem $SolutionPath -Directory
 
 	foreach($projectfolder in $projects) {
 		$packageFile = $projectfolder.FullName + "\packages.config"
