@@ -1,5 +1,7 @@
 ﻿param([string]$SolutionPath = "", [string]$TargetFolder = "", [string]$NuspecSkeleton = "")
 
+[string[]]$webFolders = @("Website", "TIS.GSP.Business.Resources")
+
 [System.Collections.ArrayList]$coreFiles = New-Object System.Collections.ArrayList
 [System.Collections.ArrayList]$webFiles = New-Object System.Collections.ArrayList
 $dependencies = @{}
