@@ -8,6 +8,12 @@ $contentFiles = @{}
 
 function DoExecute 
 {
+	Write-Host "Input parameters:"
+	Write-Host " SolutionPath:       $SolutionPath"
+	Write-Host " TargetFolder:       $TargetFolder"
+	Write-Host " NuspecSkeleton:     $NuspecSkeleton"
+	Write-Host " Current directory:  $PSScriptRoot"
+
 	ReadPackages
 
 	$dependencies = @{}
