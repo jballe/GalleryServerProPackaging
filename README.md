@@ -1,0 +1,4 @@
+GalleryServerProPackaging
+=========================
+
+Packing of GalleryServerPro
