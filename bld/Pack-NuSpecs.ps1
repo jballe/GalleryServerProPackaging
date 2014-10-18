@@ -6,7 +6,6 @@
 
 Write-Host "Configuration:"
 Write-Host " SourcePath:  $SourcePath"
-Write-Host " Counter:     $Counter"
 
 $versionPath = "ver/version.txt"
 
@@ -18,9 +17,12 @@ if((test-path $path) -eq $false) {
 
 $version = Get-Content $path
 
-if($Counter -ne $null) {
+$Counter = "$env:GO_PIPELINE_COUNTER"
+if(($Counter -ne $null) -and ($Counter -ne "")) {
     $version += ".$Counter"
 }
+
+Write-Host "Version:      $Version"
 
 $packages = Get-ChildItem $PackagesPath -Filter *.nuspec
 $count = $packages.Length
