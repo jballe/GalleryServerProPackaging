@@ -31,9 +31,8 @@ function DoExecute
 	$contentFiles = @{}
 	$contentFiles.Add("$SolutionPath\Website\bin\GalleryServerPro.Web.dll", "lib/net40")
 	$contentFiles.Add("$SolutionPath\Website\App_GlobalResources\**\*.resx", "content\App_GlobalResources")
-	$contentFiles.Add("$SolutionPath\Website\gs\**\*.ascx", "content\gs")
-	$contentFiles.Add("$SolutionPath\Website\gs\**\*.aspx", "content\gs")
-	$contentFiles.Add("$SolutionPath\Website\gs\**\*.ashx", "content\gs")
+	$contentFiles.Add("$SolutionPath\Website\default.aspx", "content")
+	$contentFiles.Add("$SolutionPath\Website\gs\**\*.*", "content\gs")
 	$contentFiles.Add("$SolutionPath\Website\scripts\*.*", "content\scripts")    
 	$contentFiles.Add("$SolutionPath\Website\web.config", "content\web.galeryserverpro.config")  
 
@@ -116,11 +115,14 @@ function MakeNuspec([string]$Id, [string]$Summary, [string]$Description) {
 
 			$srcAttr = $nuspec.CreateAttribute("src")
 			$targetAttr = $nuspec.CreateAttribute("target")
+			$excludeAttr = $nuspec.CreateAttribute("exclude")
 			($srcAttr.InnerText = $contentFile) | Out-Null
 			($targetAttr.InnerText = $target) | Out-Null
+			($excludeAttr.InnerText = "*.cs") | Out-Null
 
 			$node.Attributes.Append($srcAttr) | Out-Null
 			$node.Attributes.Append($targetAttr) | Out-Null
+			$node.Attributes.Append($excludeAttr) | Out-Null
 
 			$files.AppendChild($node) | Out-Null
 		}
