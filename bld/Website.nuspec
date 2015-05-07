@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>GalleryServer</id>
+    <version>$version$</version>
+    <authors>Roger Margin, Tech Info Systems</authors>
+    <owners>Jesper Balle</owners>
+	<projectUrl>http://www.galleryserverpro.com</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <summary>Digital Asset Management and Media Web Gallery</summary>
+	<description>Organize your media files and access them anywhere</description>
+    <copyright>Copyright 2015, Roger Martin, Tech Info Systems</copyright>
+    <tags>gallery, photo server, digital asset management </tags>
+  </metadata>
+  <files>
+	<file src="web.config.example" target="content" />
+  </files>
+</package>
